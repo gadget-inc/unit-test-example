@@ -1,0 +1,1 @@
+{"version":3,"sources":["/app/packages/framework/src/metadata.d.ts"],"sourcesContent":["export const modelsMap: Record<string, ModelMetadata>;\nexport const modelListIndex: Record<string, string>;\n"],"names":["modelsMap","modelListIndex"],"mappings":";;;;;;;;;;;IAAaA,SAAS,MAATA;IACAC,cAAc,MAAdA;;AADN,MAAMD;AACN,MAAMC"}
