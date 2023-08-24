@@ -78,7 +78,21 @@ export const unauthenticatedApi = new Client({ environment: "Development" });
 
 ## Using GitHub Actions to run tests
 
-Coming soon...
+A sample GitHub action file can be found in `.github/workflows/run_tests.yml`.
+
+This action runs tests on every push and pull request to merge to the `main` branch, installs dependencies using `yarn` and runs tests using `yarn test`.
+
+### Setting up environment variables in GitHub Actions
+
+You need to pass in a Gadget API key as a secret so that the API client in tests can be initialized. Google has some [documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets) on setting up and using encrypted secrets.
+
+For this example, a repository secret was created containing the Gadget API key environment variable definition (ie. copy all of the contents of your `.env.local` file). The secret was then passed into the GitHub action using the `env` key in the action file.
+
+```yml
+- name: Create env file
+  run: |
+    echo "${{ secrets.GADGET_TEST_API_KEY }}" > .env
+```
 
 ## App overview
 
