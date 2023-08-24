@@ -1,0 +1,181 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot test for frontend/routes/signed-in.jsx > should render the default page for signed-in users 1`] = `
+[
+  <div
+    className="app-link"
+  >
+    <img
+      alt="logo"
+      className="app-logo"
+      src="/frontend/assets/react-logo.svg"
+    />
+    <span>
+      You are now signed into 
+       
+    </span>
+  </div>,
+  <div>
+    <p
+      className="description"
+      style={
+        {
+          "width": "100%",
+        }
+      }
+    >
+      Start building your app's signed in area
+    </p>
+    <a
+      href="/edit/files/frontend/routes/signed-in.jsx"
+      rel="noreferrer"
+      style={
+        {
+          "fontWeight": 500,
+        }
+      }
+      target="_blank"
+    >
+      frontend/routes/signed-in.jsx
+    </a>
+  </div>,
+  <div
+    className="card-stack"
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <img
+          className="icon"
+        />
+        <div
+          className="userData"
+        >
+          <p>
+            id: 
+            0
+          </p>
+          <p>
+            name: 
+            Carl
+             
+            Weathers
+          </p>
+          <p>
+            email: 
+            <a
+              href="mailto:test@gmail.com"
+            >
+              test@gmail.com
+            </a>
+          </p>
+          <p>
+            created: 
+          </p>
+          <p>
+            Loading...
+          </p>
+        </div>
+      </div>
+      <div
+        className="sm-description"
+      >
+        This data is fetched from the user model
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`snapshot test for frontend/routes/signed-in.jsx > should render the loading message for signed-in users 1`] = `
+[
+  <div
+    className="app-link"
+  >
+    <img
+      alt="logo"
+      className="app-logo"
+      src="/frontend/assets/react-logo.svg"
+    />
+    <span>
+      You are now signed into 
+       
+    </span>
+  </div>,
+  <div>
+    <p
+      className="description"
+      style={
+        {
+          "width": "100%",
+        }
+      }
+    >
+      Start building your app's signed in area
+    </p>
+    <a
+      href="/edit/files/frontend/routes/signed-in.jsx"
+      rel="noreferrer"
+      style={
+        {
+          "fontWeight": 500,
+        }
+      }
+      target="_blank"
+    >
+      frontend/routes/signed-in.jsx
+    </a>
+  </div>,
+  <div
+    className="card-stack"
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <img
+          className="icon"
+        />
+        <div
+          className="userData"
+        >
+          <p>
+            id: 
+            0
+          </p>
+          <p>
+            name: 
+            Carl
+             
+            Weathers
+          </p>
+          <p>
+            email: 
+            <a
+              href="mailto:test@gmail.com"
+            >
+              test@gmail.com
+            </a>
+          </p>
+          <p>
+            created: 
+          </p>
+          <p>
+            Loading...
+          </p>
+        </div>
+      </div>
+      <div
+        className="sm-description"
+      >
+        This data is fetched from the user model
+      </div>
+    </div>
+  </div>,
+]
+`;

@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot test for frontend/routes/index.jsx > should render the Index component 1`] = `
+[
+  <div
+    className="app-link"
+  >
+    <img
+      alt="logo"
+      className="app-logo"
+      src="/frontend/assets/react-logo.svg"
+    />
+    <span>
+      You are now signed out of 
+        
+    </span>
+  </div>,
+  <div>
+    <p
+      className="description"
+    >
+      Start building your app's signed out area
+    </p>
+    <a
+      href="/edit/files/frontend/routes/index.jsx"
+      rel="noreferrer"
+      style={
+        {
+          "fontWeight": 500,
+        }
+      }
+      target="_blank"
+    >
+      frontend/routes/index.jsx
+    </a>
+  </div>,
+]
+`;
