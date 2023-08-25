@@ -4,11 +4,12 @@ This is a example of a Gadget app with unit tests.
 
 [Vitest](https://vitest.dev/) is used as a unit test runner because it works nicely with Vite, which is used to power Gadget app frontends.
 
-You can [fork this project](https://app.gadget.dev/auth/fork?domain=unit-test-sample--development.gadget.app) to try it out yourself. 
+You can [fork this project](https://app.gadget.dev/auth/fork?domain=unit-test-sample--development.gadget.app) to try it out yourself.
 
 ## Getting started
 
 The following packages have been installed, and can be found in this project's `package.json`:
+
 - [`vitest`](https://vitest.dev/): the test runner, fully compatible with Vite
 - [`dotenv`](https://github.com/motdotla/dotenv): used to import environment variables defined in a `.env.local`
 - [`react-test-renderer`](https://www.npmjs.com/package/react-test-renderer): used for snapshot testing
@@ -25,13 +26,16 @@ A `test` folder has been added to the project root. This folder contains sample 
 1. Use FileSync to pull your Gadget project's code files to your local machine
 2. Install the required packages (`yarn add vitest dotenv react-test-renderer`)
 3. Add a `test` script to `package.json`
+
 ```json
 "scripts": {
   "vite:build": "NODE_ENV=production vite build",
   "test": "vitest"
 }
 ```
+
 4. Modify your `vite.config.js` to include `test` config for vitest
+
 ```js
 /// <reference types="vitest" />
 import react from "@vitejs/plugin-react-swc";
@@ -44,21 +48,26 @@ dotenv.config({ path: __dirname + "/.env.local" });
 export default defineConfig({
   plugins: [react()],
   clearScreen: false,
-  test: { // <-- this test config is added to the defineConfig function so env vars inside .env.local are available
+  test: {
+    // this test config is added to the defineConfig function so env vars inside .env.local are available
     setupFiles: ["dotenv/config"],
   },
 });
 ```
+
 5. Create a `.ignore` file at the root-level of your Gadget project (this prevents local files from being synced to the Gadget editor with FileSync)
 6. Add `.env.local` to your `.ignore` file
 7. Create a `.env.local` file at the root-level of your Gadget project
 8. In the Gadget web editor, go to the API key page (Settings -> API Keys) and create a new key (assign it the role you wish to test)
 9. Copy the API key for the Development environment and add it as an environment variable in your local `.env.local` file
+
 ```
 // example entry in .env.local
 GADGET_TEST_API_KEY=gsk-12121212121212121212121212121212
 ```
+
 10. Create a test API client for the Development environment somewhere in your project (this sample project uses `test/api.js`)
+
 ```js
 // make sure to replace "@gadget-client/unit-test-sample" with your Gadget API client!
 import { Client } from "@gadget-client/unit-test-sample";
@@ -74,6 +83,7 @@ export const api = new Client({
 // an API client created without an API key will have the unauthenticated role
 export const unauthenticatedApi = new Client({ environment: "Development" });
 ```
+
 11. Import an API client into one of your test files to test out model actions, global actions, and HTTP routes.
 
 ## Using GitHub Actions to run tests
@@ -81,6 +91,15 @@ export const unauthenticatedApi = new Client({ environment: "Development" });
 A sample GitHub action file can be found in `.github/workflows/run_tests.yml`.
 
 This action runs tests on every push and pull request to merge to the `main` branch, installs dependencies using `yarn` and runs tests using `yarn test`.
+
+You should also create a `.gitignore` file if you are using GitHub to prevent the pushing of your `.env.local` file and `node_modules` to GitHub.
+
+```
+// sample .gitignore file
+.env.local
+.gadget/sync.json
+node_modules
+```
 
 ### Setting up environment variables in GitHub Actions
 
@@ -114,8 +133,8 @@ A sample `post` model has been added to this app to demonstrate testing model ac
 #### Template default models
 
 - `user`
-   - keeps track of all users who have signed up
-   - added relationship to `post` model so that `user` has many `posts`
+  - keeps track of all users who have signed up
+  - added relationship to `post` model so that `user` has many `posts`
 - `session`
   - keeps track of user sessions
 
@@ -128,14 +147,16 @@ A .env.local file is required for this project, which contains a `GADGET_TEST_AP
 ### Backend (actions + code)
 
 A `post` model has been added to this project to provide an example of testing Gadget actions and standalone util functions
-  - `post/actions/create.js`: custom code added to the `run` function to calculate the word count
-    - tests found in `test/post/actions/create.test.js`
-  - `post/utils/getWordCount.js`: a simple util to calculate the word count of an input string
-    - tests found in `test/post/utils/getWordCount.test.js`
+
+- `post/actions/create.js`: custom code added to the `run` function to calculate the word count
+  - tests found in `test/post/actions/create.test.js`
+- `post/utils/getWordCount.js`: a simple util to calculate the word count of an input string
+  - tests found in `test/post/utils/getWordCount.test.js`
 
 The template's default `GET-hello.js` HTTP route is used to illustrate the testing of an HTTP route.
-  - `routes/GET-hello.js` returns a `{hello: "world"}` object
-    - test found in `test/routes/GET-hello.test.js`
+
+- `routes/GET-hello.js` returns a `{hello: "world"}` object
+  - test found in `test/routes/GET-hello.test.js`
 
 ### Access roles + API permissions
 
@@ -146,6 +167,7 @@ A custom API key for this project was created with the `system-admin` role. This
 This app uses the Web app template's standard frontend, with a minor addition to `frontend/routes/signed-in.jsx` to demonstrate the mocking of a useFindMany hook.
 
 Key files:
+
 - `frontend/routes/index.jsx` the default page, similar to a simple React component
   - snapshot test found in `test/frontend/routes/index.test.jsx`
 - `frontend/routes/signed-in.jsx` the page for a signed-in user
