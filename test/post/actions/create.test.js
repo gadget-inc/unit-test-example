@@ -1,10 +1,18 @@
-import { describe, afterAll, expect, test } from "vitest";
+import { describe, expect, test, beforeAll } from "vitest";
 import { api, unauthenticatedApi } from "../../api";
 
 // this is an example of testing a Gadget action
 // it makes an API call to the action using a test API client and adds records to the database
 // you can use this pattern to test model actions and global actions in Gadget
 describe("test the post.create action", () => {
+  beforeAll(async () => {
+    // cleanup: delete all post records with name: "Unit Test Post" from old test runs
+    // you can use await api.internal.post.deleteMany() with no args to wipe the development db (make sure your API client is set to the Development environment)
+    await api.internal.post.deleteMany({
+      filter: { title: { equals: "Unit Test Post" } },
+    });
+  });
+
   test("should create a new post record", async () => {
     const result = await api.post.create({
       title: "Unit Test Post",
@@ -31,13 +39,5 @@ describe("test the post.create action", () => {
         },
       })
     ).rejects.toThrowError("GGT_PERMISSION_DENIED");
-  });
-
-  afterAll(async () => {
-    // cleanup: delete all post records with name: "Unit Test Post"
-    // you can use await api.internal.post.deleteMany() with no args to wipe the development db (make sure your API client is set to the Development environment)
-    await api.internal.post.deleteMany({
-      filter: { title: { equals: "Unit Test Post" } },
-    });
   });
 });
