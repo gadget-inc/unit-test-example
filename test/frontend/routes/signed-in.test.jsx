@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import renderer from "react-test-renderer";
 import SignedIn from "../../../frontend/routes/signed-in";
 
@@ -26,20 +26,18 @@ vi.mock("@gadgetinc/react", () => {
   };
 });
 
+// mock the api client in the file tree
+vi.mock("../../../frontend/api", () => {
+  return {
+    api: {
+      user: {},
+      post: {},
+    },
+  };
+});
+
 // this is an example mocking out the Gadget API client and useUser hook
 describe("snapshot test for frontend/routes/signed-in.jsx", () => {
-  beforeAll(() => {
-    // mock the api client in the file tree
-    vi.mock("../../../frontend/api", () => {
-      return {
-        api: {
-          user: {},
-          post: {},
-        },
-      };
-    });
-  });
-
   it("should render the default page for signed-in users", () => {
     // Provide mock data for the useFindMany
     mocks.useFindMany.mockReturnValue([
