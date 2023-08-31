@@ -76,7 +76,8 @@ exports[`snapshot test for frontend/routes/signed-in.jsx > should render the def
             created: 
           </p>
           <p>
-            Loading...
+            num posts: 
+            1
           </p>
         </div>
       </div>
