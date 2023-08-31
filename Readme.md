@@ -51,6 +51,8 @@ export default defineConfig({
   test: {
     // this test config is added to the defineConfig function so env vars inside .env.local are available
     setupFiles: ["dotenv/config"],
+    // clear mocks between tests
+    mockReset: true,
   },
 });
 ```

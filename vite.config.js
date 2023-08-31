@@ -11,5 +11,6 @@ export default defineConfig({
   clearScreen: false,
   test: {
     setupFiles: ["dotenv/config"],
+    mockReset: true,
   },
 });

@@ -13,10 +13,12 @@ const mocks = vi.hoisted(() => {
 
   return {
     useUser: () => defaultUser,
+    // vi.fn() allows us to set mock values in individual tests!
     useFindMany: vi.fn(),
   };
 });
 
+// mock the dependency using the hoisted mocks defined above
 vi.mock("@gadgetinc/react", () => {
   return {
     useUser: mocks.useUser,
@@ -58,6 +60,7 @@ describe("snapshot test for frontend/routes/signed-in.jsx", () => {
   });
 
   it("should render the loading message for signed-in users", () => {
+    // Provide mock data for the useFindMany
     mocks.useFindMany.mockReturnValue([
       {
         data: null,
