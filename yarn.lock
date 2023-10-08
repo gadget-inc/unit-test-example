@@ -153,8 +153,9 @@
     fastify-plugin "^3.0.0"
 
 "@gadget-client/unit-test-sample@link:.gadget/client":
-  version "0.0.0"
-  uid ""
+  version "1.847.0"
+  dependencies:
+    "@gadgetinc/api-client-core" "0.15.0"
 
 "@gadgetinc/api-client-core@0.15.0":
   version "0.15.0"
@@ -865,8 +866,13 @@ functions-have-names@^1.2.3:
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
 "gadget-server@link:.gadget/server":
-  version "0.0.0"
-  uid ""
+  version "1.847.0"
+  dependencies:
+    "@fastify/request-context" "3.0.0"
+    "@gadget-client/unit-test-sample" "link:.gadget/client"
+    "@gadgetinc/api-client-core" "0.15.0"
+    "@types/node" "^16.11.7"
+    fastify "^3.29.0"
 
 get-func-name@^2.0.0:
   version "2.0.0"
@@ -1295,9 +1301,9 @@ pkg-types@^1.0.3:
     pathe "^1.1.0"
 
 postcss@^8.4.27:
-  version "8.4.28"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.28.tgz#c6cc681ed00109072816e1557f889ef51cf950a5"
-  integrity sha512-Z7V5j0cq8oEKyejIKfpD8b4eBy9cwW2JWPk0+fB1HOAMsfHbnAXLLS+PfVWlzMSLQaWttKDt607I0XHmpE67Vw==
+  version "8.4.31"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.31.tgz#92b451050a9f914da6755af352bdc0192508656d"
+  integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
   dependencies:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
