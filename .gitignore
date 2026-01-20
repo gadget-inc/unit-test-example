@@ -1,0 +1,5 @@
+.gadget/
+node_modules/
+**/.DS_Store
+.react-router/
+.env.local

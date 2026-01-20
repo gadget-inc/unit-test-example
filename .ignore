@@ -1,0 +1,27 @@
+# Files to ignore when syncing with ggt CLI
+
+# These files should not be synced back to Gadget
+
+# Environment variables (contains API keys)
+
+.env
+
+# Test files (tests run locally, not on Gadget servers)
+
+tests/
+
+# IDE and editor files
+
+.vscode/
+.idea/
+.cursor/
+.claude/
+
+# Git files
+
+.git/
+.gitignore
+
+# CI/CD workflows
+
+.github/
